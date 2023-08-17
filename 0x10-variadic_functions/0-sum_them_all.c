@@ -7,18 +7,18 @@
  *
  * Return: the resulting sum
  */
-int sum_them_all(const unsigned int p, ...)
+int sum_them_all(const unsigned int n, ...)
 {
 	unsigned int i;
-	int dsum = 0;
-	va_list dlist;
+	int sum = 0;
+	va_list list;
 
-	va_start(list, p);
+	va_start(list, n);
 
-	for (i = 0; i < p; i++)
-		dsum += va_arg(dlist, int);
+	for (i = 0; i < n; i++)
+		sum += va_arg(list, int);
 
-	va_end(dlist);
+	va_end(list);
 
-	return (dsum);
+	return (sum);
 }
