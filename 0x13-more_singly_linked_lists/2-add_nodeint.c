@@ -9,15 +9,18 @@
 
 listint_t *add_nodeint(listint_t **head, const int n)
 {
-    listint_t *new_node = calloc(1, sizeof(listint_t));
-    new_node->n = n;
-    
-    if (*head == NULL) {
-        *head = new_node;
-    } else {
-        new_node->next = *head;
-	*head = new_node;
-    }
+	listint_t *new_node = calloc(1, sizeof(listint_t));
 
-    return new_node;
+	new_node->n = n;
+
+	if (*head == NULL)
+	{
+		*head = new_node;
+	}
+	else
+	{
+		new_node->next = *head;
+		*head = new_node;
+	}
+	return (new_node);
 }
