@@ -6,6 +6,7 @@
  * current - points to the headis a pointer that starts at the head of the list
  * to_return - temporary pointer that holds the address of the current
  * node before we move to the next one
+ * Author: Benedict Eneluwe
  */
 
 void free_listint(listint_t *head)
