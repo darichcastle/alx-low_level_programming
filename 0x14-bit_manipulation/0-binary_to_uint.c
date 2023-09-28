@@ -6,7 +6,7 @@
  * @binary_str: char string containing binary digits
  * Return: converted decimal number or 0 if there are invalid characters
  */
-unsigned int binary_to_uint(const char *binary_str)
+unsigned int binary_to_uint(const char *b)
 {
 	unsigned int decimal_total = 0, binary_power = 1;
 	int binary_length;
