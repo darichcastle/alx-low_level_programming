@@ -1,38 +1,31 @@
 #include "main.h"
-/**
-* _strlen - Gives the length of a string.
-* @s: String to evaluate.
-* Return: The length of the given string.
-*/
-int _strlen(char *s)
-{
-	short n = 0;
 
-	for (; s && *s; s++)
-		n++;
-
-	return (n);
-}
 /**
-* binary_to_uint - Converts a binary number to an unsigned int.
-* @b: String of 1's and 0's to be converted.
-* Return: The equivalent number in decimal.
-*/
+ * binary_to_uint - convert binary number to unsigned int
+ * @b:char string
+ * Return: return unsigned integer representation of the binary string
+ *
+ * Author: Benedict Eneluwe
+ */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int pow = 1;
-	unsigned int number = 0;
-	int length;
+	unsigned int result = 0;
 
-	if (!b)
-		return (0);
-	length = _strlen((char *)b);
-	while (length--)
+	int i = 0;
+
+	if (b == NULL)
 	{
-		if (b[length] > '1' || b[length] < '0')
-			return (0);
-		number += (b[length] - '0') * pow;
-		pow *= 2;
+		return (0);
 	}
-	return (number);
+
+
+	for (i = 0; b[i] != '\0'; i++)
+	{
+		if (b[i] != '0' && b[i] != '1')
+		{
+			return (0);
+		}
+		result = (result << 1) | (b[i] - '0');
+	}
+	return (result);
 }
