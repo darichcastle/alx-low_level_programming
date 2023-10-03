@@ -1,27 +1,19 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
-* get_bit - Gives the value of a bit at a given index.
-* @n: Number to evaluate.
-* @index: Index to look for.
-* Return: Bit at index on number.
-*
-* Author: Benedict Eneluwe
-*/
+ * get_bit - get the value of a bit at a given index
+ * @n: number to evaluate
+ * @index: index starting from 0, of the bit we want to get
+ * Return: Value of bit at index, or -1 if error
+ */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned long int mask = 1UL << index;
+	unsigned long int hold;
 
-	if (index >= sizeof(n) * 8)
-	{
-		return (1);
-	}
-	if ((n & mask) != 0)
-	{
-		return (1);
-	}
-	else
-	{
-		return (0);
-	}
+	if (index > 64)
+		return (-1);
+
+	hold = n >> index;
+
+	return (hold & 1);
 }
