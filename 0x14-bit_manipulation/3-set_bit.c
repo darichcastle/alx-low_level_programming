@@ -1,16 +1,21 @@
 #include "main.h"
+
 /**
- *set_bit-function that sets the value of a bit to 1
- *@n: A ptr to a bit
- *@index: the index to set the value
- *Return: if an error occure -1 otherwise 1
+ * set_bit - sets value of a bit to 1 at a given index
+ * @n: decimal number passed by pointer
+ * @index: index position to change, starting from 0
+ * Return: 1 if it worked, -1 if error
  */
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	if (index >= (sizeof(unsigned long int) * 8))
+	unsigned long int p;
+
+	if (index > 64)
 		return (-1);
 
-	*n ^= (1 << index);
+	for (p = 1; index > 0; index--, p *= 2)
+		;
+	*n += p;
 
 	return (1);
 }

@@ -1,17 +1,19 @@
 #include "main.h"
+#include <stdio.h>
 /**
- *get_bit-function that returns the value of a bit at a given index
- *@n:number
- *@index: the number of times to be shifted
- *Return: nth bit - bitstatus
+ * get_bit - get the value of a bit at a given index
+ * @n: number to evaluate
+ * @index: index starting from 0, of the bit we want to get
+ * Return: Value of bit at index, or -1 if error
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	int bitstatus;
+	unsigned long int hold;
 
-	if (index >= (sizeof(unsigned long int) * 8))
+	if (index > 64)
 		return (-1);
-	bitstatus = (n >> index) & 1;/*nth bit of n right shift n, index times*/
 
-	return (bitstatus);
+	hold = n >> index;
+
+	return (hold & 1);
 }
